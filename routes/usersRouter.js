@@ -4,7 +4,7 @@ const Users = require("../models/Users.js");
 const jwt = require("jsonwebtoken");
 router.use(express.json());
 // ハッシュ化を行うミドルウェア
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { appendFile } = require("fs");
 const { send } = require("process");
 const saltRounds = 10;
