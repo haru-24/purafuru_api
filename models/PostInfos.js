@@ -3,6 +3,7 @@ const env = process.env.NODE_ENV || "production";
 const config = require(__dirname + "/../config/config.json")[env];
 const sequelize = new Sequelize(
   process.env.DATABASE_URL || config.use_env_variable,
+
   {
     dialectOptions: {
       ssl: {
@@ -10,6 +11,7 @@ const sequelize = new Sequelize(
         rejectUnauthorized: false,
       },
     },
+    timezone: "+09:00",
   }
 );
 

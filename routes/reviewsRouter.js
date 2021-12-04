@@ -6,7 +6,7 @@ router.use(express.json());
 
 router.post("/", async (req, res) => {
   const post = await Review.create({
-    reviewed_at: moment().format("YYYY/ MM/ D h:mm a"),
+    reviewed_at: moment().tz("Asia/Tokyo").format("YYYY/ MM/ D h:mm a"),
     review: req.body.review,
     post_information_id: req.body.post_information_id,
     user: req.body.user,
@@ -29,6 +29,16 @@ router.get("/:pageID", async (req, res) => {
     order: [["createdAt", "DESC"]],
   });
   res.json(reviewData);
+});
+
+router.delete("/", async (req, res) => {
+  await Review.destroy({
+    where: {
+      id: req.body.id,
+    },
+  }).then(() => {
+    res.send("delete comment");
+  });
 });
 
 module.exports = router;

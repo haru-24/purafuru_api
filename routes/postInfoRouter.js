@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
     user_id: req.body.user_id,
     favorites: req.body.favorites,
     img_original_url: req.body.img_original_url,
-    posted_at: moment().format("YYYY/ MM/ D"),
+    posted_at: moment().tz("Asia/Tokyo").format("YYYY/ MM/ D"),
   })
     .then(() => {
       res.send("post_info send ok!");

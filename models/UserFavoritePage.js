@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
         rejectUnauthorized: false,
       },
     },
+    timezone: "+09:00",
   }
 );
 

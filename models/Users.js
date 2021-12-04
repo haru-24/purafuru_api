@@ -8,8 +8,10 @@ const sequelize = new Sequelize(
       ssl: {
         require: true,
         rejectUnauthorized: false,
+        useUTC: false,
       },
     },
+    timezone: "+09:00",
   }
 );
 
