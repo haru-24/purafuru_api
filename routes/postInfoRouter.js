@@ -31,6 +31,7 @@ router.get("/sort_favorite", async (req, res) => {
 
 // post_infoへ投稿
 router.post("/", async (req, res) => {
+  // eslint-disable-next-line no-unused-vars
   const post = await PostInfo.create({
     genre: req.body.genre,
     place_name: req.body.place_name,

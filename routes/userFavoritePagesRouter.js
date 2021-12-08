@@ -1,4 +1,5 @@
 const express = require("express");
+// eslint-disable-next-line no-unused-vars
 const req = require("express/lib/request");
 const router = express.Router();
 const UserFavoritePages = require("../models/UserFavoritePage");
