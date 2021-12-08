@@ -164,4 +164,18 @@ router.delete("/", async (req, res) => {
     });
 });
 
+// ユーザーがお気に入りしたページを返す
+router.get("/favorite_page", async (req, res) => {
+  const result = await PostInfo.findAll({
+    where: { id: req.query.pageId },
+    order: [["createdAt", "DESC"]],
+  })
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;

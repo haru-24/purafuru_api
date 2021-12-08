@@ -66,6 +66,5 @@ const PostInfo = sequelize.define("post_infos", {
     type: Sequelize.STRING,
   },
 });
-PostInfo.sync({ alter: true });
 
 module.exports = PostInfo;

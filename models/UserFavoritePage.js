@@ -35,6 +35,5 @@ const UserFavoritePages = sequelize.define(
     underscored: true,
   }
 );
-UserFavoritePages.sync({ alter: true });
 
 module.exports = UserFavoritePages;

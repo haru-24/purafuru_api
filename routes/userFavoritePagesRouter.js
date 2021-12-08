@@ -42,4 +42,20 @@ router.delete("/", async (req, res) => {
   });
 });
 
+// お気に入りしたページ番号を返す
+router.get("/page_number", async (req, res) => {
+  const getPageNumber = await UserFavoritePages.findAll({
+    where: {
+      user_id: req.query.userID,
+    },
+    attributes: [["favorite_page_id", "favoritePageId"]],
+  })
+    .then((getPageNumber) => {
+      res.send(getPageNumber);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 module.exports = router;
