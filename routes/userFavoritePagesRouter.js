@@ -1,6 +1,7 @@
 const express = require("express");
 // eslint-disable-next-line no-unused-vars
 const req = require("express/lib/request");
+const Sequelize = require("sequelize");
 const router = express.Router();
 const UserFavoritePages = require("../models/UserFavoritePage");
 
@@ -53,6 +54,31 @@ router.get("/page_number", async (req, res) => {
   })
     .then((getPageNumber) => {
       res.send(getPageNumber);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.delete("/page_delete", async (req, res) => {
+  await UserFavoritePages.destroy({
+    where: {
+      favorite_page_id: req.body.favorite_page_id,
+    },
+  }).then(() => {
+    res.send("delete page");
+  });
+});
+
+router.get("/favorite_number", async (req, res) => {
+  console.log(req.query.favorite_page_id);
+  const result = await UserFavoritePages.findAll({
+    where: {
+      favorite_page_id: req.query.favorite_page_id,
+    },
+  })
+    .then((result) => {
+      res.send(result);
     })
     .catch((err) => {
       console.log(err);
