@@ -1,11 +1,11 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const postInfoRouter = require("./routes/postInfoRouter");
-const reviewRouter = require("./routes/reviewsRouter.js");
-const usersRouter = require("./routes/usersRouter.js");
-const userFavoritePagesRouter = require("./routes/userFavoritePagesRouter");
+import express from "express";
+import cors from "cors";
+import postInfoRouter from "./routes/postInfoRouter";
+import reviewRouter from "./routes/reviewsRouter";
+import usersRouter from "./routes/usersRouter";
+import userFavoritePagesRouter from "./routes/userFavoritePagesRouter";
 const PORT = process.env.PORT || 8000;
+const app = express();
 
 app.use(cors());
 app.use(express.json());
