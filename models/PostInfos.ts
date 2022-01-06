@@ -1,6 +1,6 @@
-const { Sequelize, DataTypes } = require("sequelize");
+import { Sequelize, DataTypes } from "sequelize";
 const env = process.env.NODE_ENV || "production";
-const config = require(__dirname + "/../config/config.json")[env];
+const config = require("~/config/config.json")[env];
 const sequelize = new Sequelize(
   process.env.DATABASE_URL || config.use_env_variable,
 
@@ -21,50 +21,50 @@ const PostInfo = sequelize.define("post_infos", {
     allowNull: false,
     autoIncrement: true,
     primaryKey: true,
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
   },
   genre: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   place_name: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   prefecture: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   post_number: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   address: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   apeal_point: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   recommendation: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   image: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   post_user: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   post_history_id: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
   },
   user_id: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
   },
   favorites: {
-    type: Sequelize.INTEGER,
+    type: DataTypes.INTEGER,
   },
   posted_at: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
   img_original_url: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
   },
 });
 
-module.exports = PostInfo;
+export default PostInfo;

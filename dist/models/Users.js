@@ -1,7 +1,9 @@
-const { Sequelize, DataTypes } = require("sequelize");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const sequelize_1 = require("sequelize");
 const env = process.env.NODE_ENV || "production";
-const config = require(__dirname + "/../config/config.json")[env];
-const sequelize = new Sequelize(
+const config = require(__dirname + "/../../config/config.json")[env];
+const sequelize = new sequelize_1.Sequelize(
   process.env.DATABASE_URL || config.use_env_variable,
   {
     dialectOptions: {
@@ -14,7 +16,6 @@ const sequelize = new Sequelize(
     timezone: "+09:00",
   }
 );
-
 const Users = sequelize.define(
   "users",
   {
@@ -23,24 +24,23 @@ const Users = sequelize.define(
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: sequelize_1.DataTypes.INTEGER,
     },
     user_name: {
-      type: Sequelize.STRING,
+      type: sequelize_1.DataTypes.STRING,
     },
     birth_place: {
-      type: Sequelize.STRING,
+      type: sequelize_1.DataTypes.STRING,
     },
     email: {
-      type: Sequelize.STRING,
+      type: sequelize_1.DataTypes.STRING,
     },
     password: {
-      type: Sequelize.STRING,
+      type: sequelize_1.DataTypes.STRING,
     },
   },
   {
     underscored: true,
   }
 );
-
-module.exports = Users;
+exports.default = Users;
